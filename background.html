@@ -1,0 +1,22 @@
+<script>
+chrome.tabs.onCreated.addListener(function(tab){
+  alert('tab created');
+  chrome.tabs.executeScript(tab, code("alert('hi');"));
+	alert(document.body);
+	
+});
+if(document.location.href == "chrome://newtab")alert('new tab');
+chrome.browserAction.onClicked.addListener(function(tab){
+	var alreadyOpened=null
+	var chromeExtURL="chrome://extensions/"
+	chrome.tabs.getAllInWindow(null,function(tabs){
+		for (var i=0;i<tabs.length;i++){
+			if (tabs[i].url == chromeExtURL){
+				chrome.tabs.update(tabs[i].id, {selected:true})
+				return;
+			}
+		}
+		chrome.tabs.create({url:chromeExtURL,selected:true})
+	})
+})
+</script>

@@ -1,0 +1,16 @@
+{
+	 "name": "Chrome Extensions shortcut",
+   "description": "Access the Extensions window directly from the toolbar",
+   "version": "1", 
+   "icons": { "16": "icon_16_16.png",
+	      "32": "icon_32_32.png",
+	      "48": "icon_48_48.png",
+	      "128": "icon_128_128.png"
+   },
+   "permissions" : ["tabs"],
+   "browser_action": {
+	"default_icon" : "icon_19_19.png",
+	"default_title": "Open Extensions window"
+   },
+   "background_page": "background.html"
+}
